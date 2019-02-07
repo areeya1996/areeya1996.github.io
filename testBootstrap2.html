@@ -8,18 +8,12 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<style>
-		* {
-			height: 100%;
-		}
 		.col {
 			height: 100%;
 		}
 		.nav-pills {
 			background-color: black;
 			height: 100%;
-		}
-		.nav-item > .active > li, .nav-pills > .active > li:hover {
-			background-color: red;
 		}
 	</style>
 </head>
@@ -44,7 +38,20 @@
 				</ul>
 			</div>
 			<div class="col-10">
-				
+				<ul class="nav nav-tabs">
+				  <li class="nav-item">
+				    <a class="nav-link active" href="#">Active</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="#">Link</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="#">Link</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+				  </li>
+				</ul>
 			</div>
 		</div>
 	</div>
