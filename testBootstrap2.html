@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<!-- development version, includes helpful console warnings -->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
 
 	<style>
 		* {
@@ -24,7 +25,7 @@
 			background-color: black;
 			/*background-image: url("jaidee login.png");*/
 			/*background-size: auto 100%;*/
-			background-image: url("images/IMG_5226.JPG");
+			background-image: url("IMG_5226.jpg");
 			background-size: 100% 100%; /*cover*/
 			background-repeat: no-repeat;
 		}
@@ -52,6 +53,9 @@
 		.card {
 			margin-top: 20px;
 		}
+/*		th {
+			text-align: right;
+		}*/
 	</style>
 </head>
 <body>
@@ -60,13 +64,13 @@
 			<div class="col-2">
 				<!-- left side menu -->
 			    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-			    	<a class="nav-link dropdown dropdown-toggle bg-light" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+			    	<div class="nav-link dropdown dropdown-toggle bg-light" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
 			    		<div class="dropdown-menu">
 			    			<a class="dropdown-item" href="#">Button1</a>
 			    			<a class="dropdown-item" href="#">Button2</a>
 			    			<a class="dropdown-item" href="#">Button3</a>
 			    		</div>
-			    	</a>
+			    	</div>
 			    	<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
 			    	<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
 			    	<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
@@ -75,7 +79,7 @@
 			</div>
 			<div class="col-10">
 			    <div class="tab-content" id="v-pills-tabContent">
-			    	<div class="card" id="searchBar"> <!-- add 'container' to center and decrease width -->
+			    	<div class="card container" id="searchBar"> <!-- add 'container' to center and decrease width -->
 			    		<!-- <nav class="navbar navbar-light bg-light">
 							<form class="form-inline">
 								<div class="form-group mb-2">
@@ -107,7 +111,7 @@
 								<div class="form-group mx-sm-3 mb-2">
 									<input type="text" class="form-control" id="inputField" placeholder="Search...">
 								</div>
-								<button type="submit" class="btn btn-success mb-2">Search</button>
+								<button type="button" class="btn btn-success mb-2" data-toggle="collapse" data-target="#searchResult" aria-expanded="false" aria-controls="searchResult">Search</button>
 
 								<!-- input field with search icon -->
 								<!-- <div class="input-group">
@@ -120,7 +124,7 @@
 						</nav>
 				    </div>
 			    	<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-			    		<div class="card">
+			    		<div class="card container"> <!-- add 'float-left' to make the position of container to left -->
 				    		<div class="container-fluid">
 				    			<!-- <h2>Home</h2>
 				    			<p>ข้อมูลผู้ใช้งาน</p> -->
@@ -140,18 +144,57 @@
 								</ul>
 
 								<!-- Tab content -->
-								<div class="tab-pane active" id="active-tab" role="tabpanel" aria-labeledby="active-tab">
-									<div class="card-body">
-										<h2 class="card-title">User profile and status</h2>
-										<div class="card-text">
-											<table class="table table-borderless">
-												<tbody>
-													<tr>
-														<th>ชื่อ</th>
-														<td> {{ fname }} </td>
-													</tr>
-												</tbody>
-											</table>
+								<div class="tab-content">
+									<div class="tab-pane active " id="active-tab" role="tabpanel" aria-labeledby="active-tab">
+										<div class="card-body">
+											<h2 class="card-title">User profile and status</h2>
+											<div class="card-text collapse" id="searchResult">
+												<table class="table table-borderless">
+													<tbody>
+														<tr>
+															<th>ชื่อ</th>
+															<td> {{ fname }} </td>
+															<th>นามสกุล</th>
+															<td> {{ lname }} </td>
+															<th>วันเดือนปีเกิด</th>
+															<td> {{ birthdate }} </td>
+														</tr>
+														<tr>
+															<th>เบอร์โทรศัพท์</th>
+															<td> {{ phone }} </td>
+														</tr>
+														<tr>
+															<th>เลขบัตรประชาชน</th>
+															<td> {{ ssn }} </td>
+														</tr>
+														<tr>
+															<th>MemberID</th>
+															<td> {{ member }} </td>
+														</tr>
+														<tr>
+															<th>Register status</th>
+															<td id="tdStatus"> {{ status }} </td>
+															<td>
+																<button type="button" class="btn btn-primary btn-sm">Help</button>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												<div id="projectPanel">
+													<h2>Project</h2>
+													<table class="table table-borderless w-50">
+														<tbody>
+															<tr>
+																<th>Project1</th>
+																<td class="text-warning">Overdue</td>
+																<td>
+																	<button type="button" class="btn btn-primary btn-sm">Detail</button>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -179,11 +222,17 @@
 		data: {
 		    fname: 'Areeya',
 		    lname: 'Vansin',
+		    birthdate: '1996/12/28',
 		    phone: '0123456789',
 		    ssn: '0123456789123',
-		    member: '01234567'
+		    member: '01234567',
+		    status: 'Step KYC'
 		}
 	})
+
+	/* add color class to text */
+	var tdStatus = document.getElementById('tdStatus');
+	tdStatus.classList.add("text-danger");
 </script>
 </body>
 </html>
