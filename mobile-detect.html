@@ -31,14 +31,24 @@
         userAgent = md.userAgent();
         os = md.os();
         
-        if(os.match(/AndroidOS/i)) {
-            alert('AndroidOS');
-        } else if(os.match(/iOS/i)) {
-            alert('iOS');
-        } else if(os == null) {
-            console.log(os)
-            alert('Not found OS');
+        if(os != null) {
+            if(os.match(/AndroidOS/i)) {
+                alert('AndroidOS');
+            } else if(os.match(/iOS/i)) {
+                alert('iOS');
+            }
+        } else {
+            alert('Not found OS.');
         }
+        
+//         if(os.match(/AndroidOS/i)) {
+//             alert('AndroidOS');
+//         } else if(os.match(/iOS/i)) {
+//             alert('iOS');
+//         } else if(os == null) {
+//             console.log(os)
+//             alert('Not found OS');
+//         }
 
         $('#detect-button').click(function() {
             alert('Mobile:' + mobile + ' Phone:' + phone + ' userAgent:' + userAgent + ' os:' + os);
