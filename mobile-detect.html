@@ -31,9 +31,9 @@
         userAgent = md.userAgent();
         os = md.os();
         
-        if(md.match(/Android/i)) {
+        if(os.match(/AndroidOS/i)) {
             alert('AndroidOS');
-        } else if(md..match(/iPhone|iPad|iPod/i)) {
+        } else if(os.match(/iOS/i)) {
             alert('iOS');
         }
 
