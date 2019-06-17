@@ -1,0 +1,43 @@
+<html>
+    <body>
+        <div class="container" ng-app="myApp" ng-controller="test">
+            <h3>Mobile Detect</h3>
+            <button  id='detect-button'>Detect</button>
+        </div>			
+    </body>
+
+    <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.3/mobile-detect.min.js"></script>
+    <script>
+    
+        var md = new MobileDetect(window.navigator.userAgent);
+        console.log( md.mobile() );          // 'Sony'
+        console.log( md.phone() );           // 'Sony'
+        console.log( md.tablet() );          // null
+        console.log( md.userAgent() );       // 'Safari'
+        console.log( md.os() );              // 'AndroidOS'
+        console.log( md.is('iPhone') );      // false
+        console.log( md.is('bot') );         // false
+        console.log( md.version('Webkit') );         // 534.3
+        console.log( md.versionStr('Build') );       // '4.1.A.0.562'
+        console.log( md.match('playstation|xbox') ); // false
+        mobile = md.mobile();
+        phone = md.phone();
+        userAgent = md.userAgent();
+        os = md.os();
+
+        $('#detect-button').click(function() {
+            alert('Mobile:' + mobile + ' Phone:' + phone + ' userAgent:' + userAgent + ' os:' + os);
+        });
+    
+        angular.module('myApp', []).controller('test', function($scope) {
+            
+        });
+    
+    </script>
+</html>
