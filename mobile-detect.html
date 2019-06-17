@@ -31,6 +31,10 @@
         userAgent = md.userAgent();
         os = md.os();
         
+        if(navigator.userAgent.match(/Android/i)) {
+            alert('Android');
+        }
+        
         if(os.match(/AndroidOS/i)) {
             alert('AndroidOS');
         } else if(os.match(/iOS/i)) {
