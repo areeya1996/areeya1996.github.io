@@ -30,6 +30,12 @@
         phone = md.phone();
         userAgent = md.userAgent();
         os = md.os();
+        
+        if(md.match(/Android/i)) {
+            alert('AndroidOS');
+        } else if(md..match(/iPhone|iPad|iPod/i)) {
+            alert('iOS');
+        }
 
         $('#detect-button').click(function() {
             alert('Mobile:' + mobile + ' Phone:' + phone + ' userAgent:' + userAgent + ' os:' + os);
