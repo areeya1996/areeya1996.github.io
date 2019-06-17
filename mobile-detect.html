@@ -33,9 +33,11 @@
         
         if(os != null) {
             if(os.match(/AndroidOS/i)) {
-                alert('AndroidOS');
+                //alert('AndroidOS');
+                window.location = 'http://play.google.com/store/apps/details?id=com.google.android.apps.maps';
             } else if(os.match(/iOS/i)) {
-                alert('iOS');
+                //alert('iOS');
+                window.location = 'https://apps.apple.com/th/app/google-maps/id585027354?l=th';
             }
         } else {
             alert('Not found OS.');
